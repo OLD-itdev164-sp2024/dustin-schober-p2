@@ -1,14 +1,17 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-/*import * as styles from "../components/index.module.css"*/
 
 const IndexPage = ({ data }) => (
   <Layout>
     <Seo title="Home" />
-      <Link to="projects">Projects</Link>
+    <main>
+      <p>Hello welcome to my living resume website. Take a look around and learn about my background
+        and different projects I have worked on.
+      </p>
+    </main>
   </Layout>
 )
 
