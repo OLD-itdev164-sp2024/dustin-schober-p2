@@ -5,6 +5,7 @@
  */
 
 const path = require('path');
+const projects = 'projects/';
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -29,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       result.data.allContentfulLanguages.edges.forEach((edge) => {
         createPage({
-          path: edge.node.slug,
+          path: projects + edge.node.slug,
           component: require.resolve('./src/templates/languages.js'),
           context: {
             slug: edge.node.slug
