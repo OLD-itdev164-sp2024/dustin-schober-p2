@@ -3,13 +3,14 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 const Languages = ({ data }) => {
-    const { name } = data.contentfulLanguages;
+    const { name, body } = data.contentfulLanguages;
 
     return (
         <Layout>
             <h1>{name}</h1>
+            <div dangerouslySetInnerHTML={{__html: body.childMarkdownRemark.html}}></div>
         </Layout>
-    )
+    );
 }
 
 export default Languages
@@ -19,6 +20,11 @@ export const pageQuery = graphql`
         contentfulLanguages(slug: {eq: $slug}) {
             name
             slug
+            body {
+                childMarkdownRemark {
+                    html
+                }
+            }
         }
     }
 `
