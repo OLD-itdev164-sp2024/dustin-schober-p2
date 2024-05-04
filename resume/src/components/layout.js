@@ -6,6 +6,8 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Header } from "./Header"
 import "./layout.css"
 import { Gray } from "./themes/Gray"
+import { Main } from './Main'
+import { Footer } from './Footer'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -41,8 +43,8 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Content>
         <GlobalStyle />
-        <StyledMain>{children}</StyledMain>
-        <footer
+        <Main>{children}</Main>
+        <Footer
           style={{
             marginTop: `var(--space-5)`,
             fontSize: `var(--font-sm)`,
@@ -51,7 +53,7 @@ const Layout = ({ children }) => {
           © {new Date().getFullYear()} &middot; Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        </Footer>
       </Content>
     </ThemeProvider>
   )
